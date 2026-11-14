@@ -1,4 +1,6 @@
 【产品简介】
+
+SD reader variant and MCP API: [SD-READER.md](SD-READER.md).
 】支持触摸
 】支持充电
 】独特外形设计

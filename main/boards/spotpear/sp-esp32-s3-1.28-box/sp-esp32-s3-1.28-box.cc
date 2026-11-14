@@ -27,6 +27,10 @@
 #include "freertos/task.h"
 #include "power_manager.h"
 
+#ifdef CONFIG_SPOTPEAR_SD_READER
+#include "sd_card_reader.h"
+#endif
+
 #define TAG "Spotpear_ESP32_S3_1_28_BOX"
 
 LV_FONT_DECLARE(font_noto_sans_basic_16_4);
@@ -401,6 +405,10 @@ public:
         // 显示和背光可用后再初始化省电逻辑，避免空指针
         InitializePowerSaveTimer();
         InitializePowerManager();
+#ifdef CONFIG_SPOTPEAR_SD_READER
+        static SpotpearSdCardReader sd_reader;
+        sd_reader.Start();
+#endif
     }
 
     ~Spotpear_ESP32_S3_1_28_BOX() {
