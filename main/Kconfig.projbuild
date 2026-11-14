@@ -773,6 +773,15 @@ menu "Ethernet Configuration"
 
 endmenu
 
+config SPOTPEAR_SD_READER
+    bool "Enable Spotpear 1.28 Box SD reader and MCP tools"
+    depends on BOARD_TYPE_SPOTPEAR_ESP32_S3_1_28_BOX
+    default n
+    help
+        Mount the optional SD card using the manufacturer's one-bit SDMMC
+        wiring. Enables bounded, asynchronous listing and reading tools.
+        Does not offer file writes, deletion or automatic formatting.
+
 choice ESP32_S3_LCD_EV_BOARD_VERSION
     depends on BOARD_TYPE_ESP32_S3_LCD_EV_BOARD
     prompt "EV_BOARD Type"
